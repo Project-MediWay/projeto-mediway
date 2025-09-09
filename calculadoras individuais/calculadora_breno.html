@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira modelo1</title>
+</head>
+<body>
+    <H1>Calculadora Financeira (modelo1)</H1>
+    <h3>Breno Abilio</h3> <h4>RA 01252018</h4>
+    <span>Insira o valor por UNIDADE da vacina que irá transportar:</span>
+    <Input id="id_valorunidade" placeholder="Valor em reais"> </Input> <br> <br>
+    <span>Insira a quantidade de lotes que irá transportar:</span>
+    <input type="text" id="id_lotes"> <br> <br>
+    <span>Insira quantas unidades contém cada lote:</span>
+    <input type="text" id="id_uniLotes"> <br> <br>
+    <h3>Clique abaixo para ver quanto sua empresa está deixando de lucrar</h3>
+    <button onclick="calcular()">Ver Resultado</button>
+    <div id="mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+
+    function calcular() {
+        var lotes = Number(id_lotes.value);
+        var uni_por_lote = Number(id_uniLotes.value);
+        var valor_unidade = Number(id_valorunidade.value);
+        var deterioradas_lote = uni_por_lote * 0.5;
+        var valor_total = uni_por_lote * lotes * valor_unidade; 
+        var prejuizo = valor_total * 0.5;
+
+        mensagem.innerHTML = ` De acordo com dados da Organização Mundial da Saúde (OMS), 
+        você está propenso a ter até ${deterioradas_lote} unidades de vacina <b>deterioradas</b> por lote,
+        podendo ter um prejuízo de aproximadamente R$${prejuizo} por viagem. `
+
+    }
+
+
+
+
+</script>
