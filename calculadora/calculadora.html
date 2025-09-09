@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calculadora.css" />
+  </head>
+
+  <body>
+    <div class="calculadora">
+      <h1>Calcule o impacto do nosso projeto em seu negócio!</h1>
+      <label for="input_vacinas">Insira a quantidade de vacinas:</label>
+      <input type="text" id="input_vacina" />
+      <label for="input_vacinas">Insira o preço médio das vacinas:</label>
+      <input type="text" id="input_preco" />
+      <button onclick="calcularPrejuizo()">Calcular</button>
+      <div id="div_mensagem"></div>
+    </div>
+  </body>
+</html>
+<script>
+  function calcularPrejuizo() {
+    var qtdVacina = Number(input_vacina.value);
+    var precoMediaVacina = Number(input_preco.value);
+    var resultadoPrejuizo = qtdVacina * precoMediaVacina * 0.2;
+
+    div_mensagem.innerHTML = `De acordo com a OMS, 50% das vacinas chegam ao destino deterioradas, sendo 46% por conta da quebra da cadeia de frio durante o transporte. Com base no preço médio de <b>R$ ${precoMediaVacina}</b> e na quantidade de <b>${qtdVacina}</b> vacinas, com o nosso sistema, é possível diminuir o prejuízo financeiro <b>EM ATÉ R$ ${resultadoPrejuizo.toFixed(
+      2
+    )}</b>`;
+  }
+</script>
