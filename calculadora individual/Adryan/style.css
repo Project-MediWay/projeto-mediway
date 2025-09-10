@@ -1,0 +1,23 @@
+    .card{
+			 width:500px;
+			 height: fit-content;
+			 background-color: hwb(101 62% 4% / 0.493);
+			 border-radius: 200px; border: solid 7px green;
+			 margin: 10px; padding: 60px;
+		
+	}
+	span{
+		color:aliceblue
+
+	}
+
+	.red{
+			 width:190px;
+			 height: fit-content;
+			 background-color: hwb(0 0% 0%);
+			 border-radius: 50px; border: solid 3px rgb(0, 0, 0);
+			 margin: 6px; padding: 10px;
+
+	}
+
+

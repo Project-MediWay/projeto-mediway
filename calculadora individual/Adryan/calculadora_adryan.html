@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- card 1 -->
+
+    <div class="card"><h2>Calculadora Financeira</h2><br><br>
+    <label for=""><b>Vacina tipo 1</label></b></label><br><br>
+    <label for="">Quantidade:</label>
+    <input type="text" id="input_quantidade"><br>
+    <label for="">Valor unitário:</label>
+    <input type="text" id="input_valorunidade"><br>
+    <button onclick="calculo()">Calcular</button> <br><br><br>
+    <div id="div_mensagem"></div>
+
+
+
+    </div>
+
+    <!-- Card 2  -->
+
+    <div class="card"><h2>Gasto com Combustivel</h2><br><br>
+    <label for=""><b>Transporte 1</label></b></label><br><br>
+    <label for="">Distancia em Km</label>
+    <input type="text" id="input_distancia"><br>
+    <label for="">valor combustivel</label>
+    <input type="text" id="input_combustivel"><br>
+    <button onclick="gastos()">Calcular</button> <br><br><br>
+    <b><button class="red" onclick="totalgastos()"><span>Soma total do pejuízo</span></button></b>
+    <div id="div_mensagem2"></div>
+    <div id="div_mensagem3"></div>
+       
+</body>
+</html>
+
+<script>   
+        var vacinas = 0
+        var gasto = 0
+        var valortotal = 0 
+        var acumulado = 0
+    function calculo() {
+        var quantidade = Number(input_quantidade.value);
+        var valor = Number(input_valorunidade.value);
+        var soma = quantidade * valor
+        var percentual = soma * 0.46
+        var vacinas = soma - percentual
+
+    div_mensagem.innerHTML = `Na quantidade de ${quantidade} vacinas com valores de ${valor}R$ por unidade, o percentual de perda ficaria em ${soma - percentual}R$.<br>`;
+         acumulado += soma - percentual                   
+    }
+
+
+</script>
+
+
+
+
+<script>
+
+    function gastos() {
+        var km = Number(input_distancia.value);
+        var combustivel = Number(input_combustivel.value);
+        var gasto = km * combustivel
+
+        div_mensagem2.innerHTML = `Em um trajeto de ${km}Km, será gasto ${gasto}R$ em combustível, calculando a ida e a volta o prejuízo será de ${gasto * 2}`;
+        valortotal += gasto
+        
+ 
+    }
+
+    function totalgastos() {
+        var transporte = valortotal * 2;
+        acumulado += vacinas + transporte;
+       
+
+        div_mensagem3.innerHTML = `<b><br><br><br>PREJUIZO TOTAL:   ${acumulado}R$`;
+
+    }
+
+
+</script>
