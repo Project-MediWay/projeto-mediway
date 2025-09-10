@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora Financeira</h1>
+    <span>Insira a quantidade de Vacinas transportadas</span><br>
+    <input type="number"  id="qntVacina"><br>
+    <span>Insira a quantidade de vacinas perdidas</span><br>
+     <input type="number"  id="qntPerdida"><br>
+     <span>Insira o valor das vacinas</span><br>
+     <input type="number" id="Preco">
+     <button onclick="Calcular()">Calcular prejuizo</button>
+     <div id="div_mensagem"></div>  
+</body>
+</html>
+    <script>
+        function Calcular(){
+            var preju = (Number(qntPerdida.value) * Number(qntVacina.value)) / 100
+            var preco = Number(qntPerdida.value) * Number(Preco.value)
+
+             div_mensagem.innerHTML = `O valor do prejuizo é ${preco} e a porcentagem perdida é ${preju}`
+        }
+
+
+
+
+
+
+    </script>
