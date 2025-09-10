@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora Financeira</h1>
+
+    Digite a quantidade de vacinas: <br>
+    <input type="text" id="input_vacinas"> <br><br>
+
+    Digite o valor unitário: <br>
+    <input type="text" id="input_valor"> <br><br>
+
+    <button onclick="btn_calcular()">Calcular Perda</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function btn_calcular(){
+        var vacinas = Number(input_vacinas.value);
+        var valor = Number(input_valor.value);
+
+        var calculo = vacinas * valor * 0.20
+
+        div_mensagem.innerHTML = `O valor da perda de medicamentos será de R$ ${calculo.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})} do valor total`
+
+
+    }
+</script>
