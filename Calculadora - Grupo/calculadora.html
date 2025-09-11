@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora</title>
-  <link rel="stylesheet" href="calculadora.css" />
+  <!-- <link rel="stylesheet" href="calculadora.css" /> -->
 </head>
 
 <body>
@@ -49,9 +49,9 @@
     if (margemPerdas == 20) {
       div_mensagem_2.innerHTML = `Com uma margem de 20% de perdas, sua empresa está no limite da média de mercado. Ainda que pareça pouco, isso pode gerar um prejuízo financeiro significativo! Considerar a utilização da nossa solução pode potencializar seus resultados.`;
     } else if (margemPerdas < 20) {
-      div_mensagem_2.innerHTML = `Com uma margem de ${margemPerdas.toFixed(2)}% de perdas, sua empresa está ${(20 - margemPerdas).toFixed(2)}% abaixo da média de mercado. Ainda que sua empresa esteja melhor posicionada em relação ao mercado, é sempre necessário buscar a melhor performance possível, reduzindo perdas e em conformidade com as normas da ANVISA. Nossa empresa pode lhe ajudar com isso!`;
+      div_mensagem_2.innerHTML = `Com uma margem de ${margemPerdas.toFixed(2)}%, as perdas da sua empresa estão ${(20 - margemPerdas).toFixed(2)}% abaixo da média de mercado. Ainda que sua empresa esteja melhor posicionada em relação à concorrência, é sempre necessário buscar a melhor performance possível, mantendo o controle e a conformidade com as normas da ANVISA. Nossa empresa pode lhe ajudar com isso!`;
     } else {
-      div_mensagem_2.innerHTML = `Com uma margem de ${margemPerdas.toFixed(2)}% de perdas, sua empresa está ${(margemPerdas - 20).toFixed(2)}% acima da média de mercado. Esse indicador pode significar que sua empresa está tendo grandes prejuízos financeiros, além de não estar em conformidade com as normas da ANVISA. Considerar a utilização da nossa solução pode mitigar essas perdas!`;
+      div_mensagem_2.innerHTML = `Com uma margem de ${margemPerdas.toFixed(2)}%,  as perdas da sua empresa estão ${(margemPerdas - 20).toFixed(2)}% acima da média de mercado. Esse indicador pode significar que sua empresa está tendo grandes prejuízos financeiros, além de não estar em conformidade com as normas da ANVISA. Considerar a utilização da nossa solução pode mitigar essas perdas!`;
     }
 
 
