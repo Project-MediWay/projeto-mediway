@@ -5,16 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora</title>
-  <!-- <link rel="stylesheet" href="calculadora.css" /> -->
+   <!--<link rel="stylesheet" href="calculadora.css" />  -->  
 </head>
 
 <body>
   <div class="calculadora">
     <h1>Calcule o impacto do nosso projeto em seu negócio!</h1>
     <label for="input_vacinas">Insira a quantidade de vacinas:</label>
-    <input type="text" id="input_vacina" />
+    <input type="text" id="input_vacina" placeholder="em unidades"/>
     <label for="input_vacinas">Insira o preço médio das vacinas:</label>
-    <input type="text" id="input_preco" />
+    <input type="text" id="input_preco" placeholder="em reais"/>
     <button onclick="calcularPrejuizo()">Calcular Prejuízo</button>
     <div id="div_mensagem"></div>
   </div>
@@ -22,9 +22,9 @@
   <div class="calculadora">
     <h1>Descubra sua margem de perdas em relação ao mercado!</h1>
     <label for="input_qtdVacinas">Insira a quantidade de vacinas:</label>
-    <input type="text" id="input_qtdVacinas" />
+    <input type="text" id="input_qtdVacinas" placeholder="em unidades"/>
     <label for="input_vacinasPerdidas">Insira a quantidade de vacinas perdidas:</label>
-    <input type="text" id="input_vacinasPerdidas" />
+    <input type="text" id="input_vacinasPerdidas" placeholder="em unidades"/>
     <button onclick="calcularMargem()">Calcular Margem</button>
     <div id="div_mensagem_2"></div>
   </div>
@@ -37,7 +37,7 @@
     var precoMediaVacina = Number(input_preco.value);
     var resultadoPrejuizo = qtdVacina * precoMediaVacina * 0.2;
 
-    div_mensagem.innerHTML = `De acordo com a OMS, 50% das vacinas chegam ao destino deterioradas, sendo 46% por conta da quebra da cadeia de frio durante o transporte. Com base no preço médio de <b>R$ ${precoMediaVacina.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b> e na quantidade de <b>${qtdVacina}</b> vacinas, com o nosso sistema, é possível diminuir o prejuízo financeiro <b>EM ATÉ ${resultadoPrejuizo.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b>`;
+    div_mensagem.innerHTML = `<br>De acordo com a OMS, 50% das vacinas chegam ao destino deterioradas, sendo 46% por conta da quebra da cadeia de frio durante o transporte.<br>Com base no preço médio de <b>${precoMediaVacina.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b> e na quantidade de <b>${qtdVacina}</b> vacinas, com o nosso sistema, é possível diminuir o prejuízo financeiro <b>EM ATÉ ${resultadoPrejuizo.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b>`;
   }
 
   function calcularMargem() {
@@ -47,11 +47,12 @@
     var margemPerdas = (vacinasPerdidas / qtdVacinas * 100);
 
     if (margemPerdas == 20) {
-      div_mensagem_2.innerHTML = `Com uma margem de 20% de perdas, sua empresa está no limite da média de mercado. Ainda que pareça pouco, isso pode gerar um prejuízo financeiro significativo! Considerar a utilização da nossa solução pode potencializar seus resultados.`;
+      div_mensagem_2.innerHTML = `<br>Com uma margem de 20% de perdas, sua empresa está no limite da média de mercado. Ainda que pareça pouco, isso pode gerar um prejuízo financeiro significativo!<br> Considerar a utilização da nossa solução pode potencializar seus resultados.`;
     } else if (margemPerdas < 20) {
-      div_mensagem_2.innerHTML = `Com uma margem de ${margemPerdas.toFixed(2)}%, as perdas da sua empresa estão ${(20 - margemPerdas).toFixed(2)}% abaixo da média de mercado. Ainda que sua empresa esteja melhor posicionada em relação à concorrência, é sempre necessário buscar a melhor performance possível, mantendo o controle e a conformidade com as normas da ANVISA. Nossa empresa pode lhe ajudar com isso!`;
+      div_mensagem_2.innerHTML = `<br>Com uma margem de ${margemPerdas.toFixed(2)}%, as perdas da sua empresa estão ${(20 - margemPerdas).toFixed(2)}% abaixo da média de mercado.<br> Ainda que sua empresa esteja melhor posicionada em relação à concorrência, é sempre necessário buscar a melhor performance possível, mantendo o controle e a conformidade com as normas da ANVISA. Nossa empresa pode lhe ajudar com isso!`;
     } else {
-      div_mensagem_2.innerHTML = `Com uma margem de ${margemPerdas.toFixed(2)}%,  as perdas da sua empresa estão ${(margemPerdas - 20).toFixed(2)}% acima da média de mercado. Esse indicador pode significar que sua empresa está tendo grandes prejuízos financeiros, além de não estar em conformidade com as normas da ANVISA. Considerar a utilização da nossa solução pode mitigar essas perdas!`;
+      div_mensagem_2.innerHTML = `<br>Com uma margem de ${margemPerdas.toFixed(2)}%,  as perdas da sua empresa estão ${(margemPerdas - 20).toFixed(2)}% acima da média de mercado.<br> Esse indicador pode significar que sua empresa está tendo grandes prejuízos financeiros, além de não estar em conformidade com as normas da ANVISA. Considerar a utilização da nossa solução pode mitigar essas perdas!`;
+
     }
 
 
