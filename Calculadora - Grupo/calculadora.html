@@ -5,26 +5,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora</title>
-   <!--<link rel="stylesheet" href="calculadora.css" />  -->  
+  <!--<link rel="stylesheet" href="calculadora.css" />  -->
 </head>
+
+<style>
+  body {
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .yellow {
+    color: orange;
+  }
+
+  .red {
+    color: red;
+  }
+</style>
 
 <body>
   <div class="calculadora">
     <h1>Calcule o impacto do nosso projeto em seu negócio!</h1>
-    <label for="input_vacinas">Insira a quantidade de vacinas:</label>
-    <input type="text" id="input_vacina" placeholder="em unidades"/>
-    <label for="input_vacinas">Insira o preço médio das vacinas:</label>
-    <input type="text" id="input_preco" placeholder="em reais"/>
+    <label for="input_vacinas">Insira a quantidade de vacinas:</label><br>
+    <input type="text" id="input_vacina" placeholder="em unidades" /><br>
+    <label for="input_vacinas">Insira o preço médio das vacinas:</label><br>
+    <input type="text" id="input_preco" placeholder="em reais" /><br>
     <button onclick="calcularPrejuizo()">Calcular Prejuízo</button>
     <div id="div_mensagem"></div>
   </div>
 
   <div class="calculadora">
     <h1>Descubra sua margem de perdas em relação ao mercado!</h1>
-    <label for="input_qtdVacinas">Insira a quantidade de vacinas:</label>
-    <input type="text" id="input_qtdVacinas" placeholder="em unidades"/>
-    <label for="input_vacinasPerdidas">Insira a quantidade de vacinas perdidas:</label>
-    <input type="text" id="input_vacinasPerdidas" placeholder="em unidades"/>
+    <label for="input_qtdVacinas">Insira a quantidade de vacinas:</label><br>
+    <input type="text" id="input_qtdVacinas" placeholder="em unidades" /><br>
+    <label for="input_vacinasPerdidas">Insira a quantidade de vacinas perdidas:</label><br>
+    <input type="text" id="input_vacinasPerdidas" placeholder="em unidades" /><br>
     <button onclick="calcularMargem()">Calcular Margem</button>
     <div id="div_mensagem_2"></div>
   </div>
@@ -37,7 +56,7 @@
     var precoMediaVacina = Number(input_preco.value);
     var resultadoPrejuizo = qtdVacina * precoMediaVacina * 0.2;
 
-    div_mensagem.innerHTML = `<br>De acordo com a OMS, 50% das vacinas chegam ao destino deterioradas, sendo 46% por conta da quebra da cadeia de frio durante o transporte.<br>Com base no preço médio de <b>${precoMediaVacina.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b> e na quantidade de <b>${qtdVacina}</b> vacinas, com o nosso sistema, é possível diminuir o prejuízo financeiro <b>EM ATÉ ${resultadoPrejuizo.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b><h6>Fonte:https://us.bosch-press.com/pressportal/br/pt/press-release-31552.html<h6>`;
+    div_mensagem.innerHTML = `<br>De acordo com a OMS, 50% das vacinas chegam ao destino deterioradas, sendo 46% por conta da quebra da cadeia de frio durante o transporte.<br>Com base no preço médio de <b>${precoMediaVacina.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b>, na quantidade de <b>${qtdVacina}</b> vacinas e na <b class="red">margem de perda brasileira de 20%</b>, com o nosso sistema, é possível diminuir o prejuízo financeiro <b class="green">EM ATÉ ${resultadoPrejuizo.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</b><h5>Fonte: https://us.bosch-press.com/pressportal/br/pt/press-release-31552.html<h5>`;
   }
 
   function calcularMargem() {
@@ -47,11 +66,11 @@
     var margemPerdas = (vacinasPerdidas / qtdVacinas * 100);
 
     if (margemPerdas == 20) {
-      div_mensagem_2.innerHTML = `<br>Com uma margem de 20% de perdas, sua empresa está no limite da média de mercado. Ainda que pareça pouco, isso pode gerar um prejuízo financeiro significativo!<br> Considerar a utilização da nossa solução pode potencializar seus resultados.<h5>*Segundo dados da OMS <h5> <h6>Fonte:https://nexxto.com/estabilidade-de-medicamentos-termolabeis-o-que-fazer-apos-quebra-da-cadeia-do-frio/<h6>`;
+      div_mensagem_2.innerHTML = `<br>Com uma margem de <b class="yellow">${margemPerdas}% de perdas</b>, sua empresa está no limite da média de mercado. Ainda que pareça pouco, isso pode gerar um <b class="yellow">prejuízo financeiro significativo!</b><br> Considerar a utilização da <b class="green">nossa solução poderá otimizar seus resultados.</b><h4>*Segundo dados da OMS </h4> <h5>Fonte:https://nexxto.com/estabilidade-de-medicamentos-termolabeis-o-que-fazer-apos-quebra-da-cadeia-do-frio/<h5>`;
     } else if (margemPerdas < 20) {
-      div_mensagem_2.innerHTML = `<br>Com uma margem de ${margemPerdas.toFixed(2)}%, as perdas da sua empresa estão ${(20 - margemPerdas).toFixed(2)}% abaixo da média de mercado. Ainda que sua empresa esteja melhor posicionada em relação à concorrência, <br> é sempre necessário buscar a melhor performance possível e manter o controle. Nossa empresa pode lhe ajudar com isso! <h5>*Segundo pesquisa da Anvisa <h5> <h6>Fonte:https://nexxto.com/estabilidade-de-medicamentos-termolabeis-o-que-fazer-apos-quebra-da-cadeia-do-frio/<h6>`;
+      div_mensagem_2.innerHTML = `<br>Com uma margem de <b class="red">${margemPerdas.toFixed(2)}%</b>, as perdas da sua empresa estão <b class="green">${(20 - margemPerdas).toFixed(2)}% abaixo da média de mercado</b>. Ainda que sua empresa esteja melhor posicionada em relação à concorrência, <br> é sempre necessário <b class="green">buscar a melhor performance possível, manter o controle e estar em conformidade com as normas da ANVISA</b>. Nossa empresa pode lhe ajudar com isso! <h4>*Segundo pesquisa da Anvisa </h4> <h5>Fonte:https://nexxto.com/estabilidade-de-medicamentos-termolabeis-o-que-fazer-apos-quebra-da-cadeia-do-frio/<h5>`;
     } else {
-      div_mensagem_2.innerHTML = `<br>Com uma margem de ${margemPerdas.toFixed(2)}%,  as perdas da sua empresa estão ${(margemPerdas - 20).toFixed(2)}% acima da média de mercado.<br> Esse indicador pode significar que sua empresa está tendo grandes prejuízos financeiros. <br> Considerar a utilização da nossa solução pode mitigar essas perdas!  <h5>*Segundo pesquisa da Anvisa <h5> <h6>Fonte:https://nexxto.com/estabilidade-de-medicamentos-termolabeis-o-que-fazer-apos-quebra-da-cadeia-do-frio/<h6>`;
+      div_mensagem_2.innerHTML = `<br>Com uma margem de <b class="red">${margemPerdas.toFixed(2)}%</b>, as perdas da sua empresa estão <b class="red">${(margemPerdas - 20).toFixed(2)}% acima da média de mercado</b>.<br> Esse indicador pode significar que sua empresa está tendo </b class="red">grandes prejuízos financeiros<b>. Considerar a utilização da<b class="green"> nossa solução poderá minizar essas perdas!</b>  <h4>*Segundo pesquisa feita com base em dados da Anvisa </h4> <h5>Fonte:https://nexxto.com/estabilidade-de-medicamentos-termolabeis-o-que-fazer-apos-quebra-da-cadeia-do-frio/<h5>`;
     }
 
 
